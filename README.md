@@ -4,3 +4,5 @@ Marketplace demo, versión semanal para la construcción de un marketplace por p
 * 11 de Julio a 15 de Julio 2016
 * Trabajar repositorios GIT
 * Trabajar con PHP
+* Probando en modificar y subir ficheros a GIT HUB
+* 
