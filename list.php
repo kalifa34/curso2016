@@ -16,6 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
 
+
     <!-- styles needed for carousel slider -->
     <link href="assets/css/owl.carousel.css" rel="stylesheet">
     <link href="assets/css/owl.theme.css" rel="stylesheet">
@@ -117,17 +118,85 @@
                         <div class="tab-box clearfix ">
 
                             <!-- Nav tabs -->
+                            
+                            
+                            
+                            
+                            
+                            
+<!-- DECLARACION VARIABLES Y ARRAY -->
+
+                          <?php
+                            
+                                $usuario1 = array(
+                                   'nombre' => "Jose Luis Rueda",
+                                   'trayecto' => "Córdoba a Malaga",
+                                   'direccion' => "Calle Caramelo, 2",
+                                   'hora' => "10:30",
+                                   'precio' => "13",
+                                   'plazas' => "4",
+                                   'comentario' => "Responsable, amable y me gusta conversar"
+                                    );
+                                
+                                $usuario2 = array(
+                                    'nombre' => "Perico El De Los Palotes",
+                                    'trayecto' => "Córdoba a Sevilla",
+                                    'direccion' => "Calle Pokemon, 3",
+                                    'hora' => "11:10",
+                                    'precio' => "10",
+                                    'plazas' => "1",
+                                    'comentario' => "No quiero perros, ni personas que me entretengan en el viaje."
+                                    );
+                                    
+                                $usuario3 = array(
+                                    'nombre' => "Dolores Fuertes del Vientre",
+                                    'trayecto' => "Córdoba a Huelva",
+                                    'direccion' => "Calle España, 20",
+                                    'hora' => "9:30",
+                                    'precio' => "18",
+                                    'plazas' => "3",
+                                    'comentario' => "Siempre haremos una parada en el Restaurante Don Pepito para desayunar."
+                                    );   
+                                    
+                                $trayectos = array(
+                                    1 => $usuario1,
+                                    2 => $usuario2,
+                                    3 => $usuario3
+                                );
+                                
+                                ?>
+
+<!-- FIN  ARRAY -->
+                            
+                      
+                       
+                       
+                       
                             <div class="col-lg-12  box-title no-border">
                                 <div class="inner">
                                     <h2><span> Trayectos </span> publicados
-                                        <small> 1 resultado encontrado</small>
-
-
+                                     <small><?php echo count($trayectos) ?> resultado(s) encontrado(s)</small>
                                     </h2>
                                 </div>
                             </div>
                             
                         <div class="adds-wrapper jobs-list">
+
+
+
+<!-- CONDICION Y COMIENZO DEL BUCLE EN PHP -->
+
+
+                            <?php
+                            
+                               for ($i = 1; $i <= count($trayectos); $i = $i + 1) 
+                                {
+                            ?>
+                            
+                            
+           <!-- FIN DEL PHP -->                 
+                            
+                            
                             <div class="item-list job-item">
 
 
@@ -139,15 +208,18 @@
                                 <!--/.photobox-->
                                 <div class="col-sm-10  col-xs-10  add-desc-box">
                                     <div class="add-details jobs-item">
-                                        <h5 class="company-title"><a href="">Antonio Pérez</a></h5>
-                                        <h4 class="job-title"><a href="job-details.html"> Córdoba a Huelva </a></h4>
+                                        <h5 class="company-title"><a href=""><?php echo $trayectos[$i]['nombre'];?></a></h5>
+                                        <h4 class="job-title"><a href="job-details.html"><?php echo $i; ?>. <?php echo $trayectos[$i]['trayecto'];?></a></h4>
                                         <span class="info-row">  <span class="item-location"><i
-                                                class="fa fa-map-marker"></i> Calle Poeta Paredes, 25 </span> <span class="date"><i
-                                                class=" icon-clock"> </i>9:00</span><span class=" salary">	<i
-                                                class=" icon-money"> </i> 10€</span></span>
+                                                class="fa fa-map-marker"></i> <?php echo $trayectos[$i]['direccion'];?></span> <span class="date"><i
+                                                class=" icon-clock"> </i><?php echo $trayectos[$i]['hora'];?></span><span class=" salary">	<i
+                                                class=" icon-money"> </i><?php echo $trayectos[$i]['precio'];?></span></span>
 
+                                       
                                         <div class="jobs-desc">
-                                            Un viaje entretenido y seguro, no me gusta correr. Además, pararemos a mitad de camino para tomar una rica tostada de sobraasada, y luego, directos a Huelva.
+                                            
+                                      
+                                        
                                         </div>
 
 
@@ -155,8 +227,15 @@
                                             <ul class="list-unstyled list-inline">
                                                 <li>
                                                     <span class="save-job">
+                                                         <?php
+                                                            echo $trayectos[$i]['comentario'];
+                                                            ?>
+                                                            </br>
                                                         <span class="fa fa-users"></span>
-                                                        3 plazas
+                                                        
+                                                            
+                                                        
+                                                        <?php echo $trayectos[$i]['plazas'];?> plazas
                                                     </span>
                                                 </li>
                                             </ul>
@@ -168,8 +247,30 @@
                                 <!--/.add-desc-box-->
 
                                 <!--/.add-desc-box-->
+                                
+                                
                             </div>
                             <!--/.job-item-->
+
+
+
+                        
+                        
+                           <?php
+                                }
+                            ?>
+         
+         
+         
+                           
+ <!-- FIN DEL BUCLE -->                          
+                           
+                           
+                           
+                           
+                           
+                           
+                           
                         </div>
                     </div>    
                 </div>    
@@ -178,11 +279,11 @@
             </div>
         </div>
     </div>    
-        
+       </br> </br> 
     <div class="footer" id="footer">
         <div class="container">
             <ul class=" pull-right navbar-link footer-nav">
-                <li> &copy; 2016 - development by Sopinet Software</li>
+                <li> &copy; 2016 - Jose Luis Rueda Hernandez</li>
             </ul>
         </div>
     </div>

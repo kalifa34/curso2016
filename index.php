@@ -38,6 +38,19 @@
 
 
 </head>
+
+
+<?php
+    date_default_timezone_set("Europe/Madrid");
+    $year = date("Y");
+    $minombre= "Jose Luis Rueda Hernandez";
+    $completo= $year . " " . $minombre;
+?>
+
+
+
+
+
 <body>
 
 <div id="wrapper">
@@ -93,8 +106,13 @@
     </div>
     <!-- /.intro -->
 
+
     <div class="main-container">
         <div class="container">
+            
+            
+           
+
             <div class="row">
                 <div class="col-sm-12 page-content col-thin-right">
                     <div class="inner-box category-content">
@@ -191,8 +209,11 @@
     <div class="footer" id="footer">
         <div class="container">
             <ul class=" pull-right navbar-link footer-nav">
-                <li> &copy; 2016 - development by Sopinet Software</li>
+                
+                <li> &copy; <?php echo $completo ?></li>
+                
             </ul>
+            
         </div>
     </div>
     <!-- /.footer -->
