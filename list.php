@@ -128,41 +128,71 @@
 
                           <?php
                             
+                            
                                 $usuario1 = array(
                                    'nombre' => "Jose Luis Rueda",
-                                   'trayecto' => "Córdoba a Malaga",
+                                   'origen' => "Córdoba",
+                                   'destino' => "Sevilla",
                                    'direccion' => "Calle Caramelo, 2",
                                    'hora' => "10:30",
-                                   'precio' => "13",
+                                   'precio' => "13€",
                                    'plazas' => "4",
                                    'comentario' => "Responsable, amable y me gusta conversar"
                                     );
                                 
                                 $usuario2 = array(
                                     'nombre' => "Perico El De Los Palotes",
-                                    'trayecto' => "Córdoba a Sevilla",
+                                    'origen' => "Sevilla",
+                                    'destino' => "Córdoba",
                                     'direccion' => "Calle Pokemon, 3",
                                     'hora' => "11:10",
-                                    'precio' => "10",
+                                    'precio' => "10€",
                                     'plazas' => "1",
                                     'comentario' => "No quiero perros, ni personas que me entretengan en el viaje."
                                     );
                                     
                                 $usuario3 = array(
                                     'nombre' => "Dolores Fuertes del Vientre",
-                                    'trayecto' => "Córdoba a Huelva",
+                                    'origen' => "Córdoba",
+                                    'destino' => "Huelva",
                                     'direccion' => "Calle España, 20",
                                     'hora' => "9:30",
-                                    'precio' => "18",
+                                    'precio' => "18€",
                                     'plazas' => "3",
                                     'comentario' => "Siempre haremos una parada en el Restaurante Don Pepito para desayunar."
                                     );   
                                     
+                                 $usuario4= array(
+                                   'nombre' => "Armando Bronca",
+                                   'origen' => "Córdoba",
+                                   'destino' => "Cádiz",
+                                   'direccion' => "Calle Chiclana, 2",
+                                   'hora' => "8:30",
+                                   'precio' => "16€",
+                                   'plazas' => "2",
+                                   'comentario' => "Responsable al volante, me gusta conducir escuchando música."
+                                    );
+                                    
                                 $trayectos = array(
-                                    1 => $usuario1,
-                                    2 => $usuario2,
-                                    3 => $usuario3
+                                    0 => $usuario1,
+                                    1 => $usuario2,
+                                    2 => $usuario3,
+                                    3 => $usuario4,
                                 );
+                                
+                                
+                                
+                                $trayectosFilt = array();
+                                
+                                    for ($i = 0; $i < count($trayectos); $i = $i + 1) {
+                                       $a = $trayectos[$i]["origen"];
+                                       $b = $_GET["country"];
+                                       $c = $trayectos[$i]["destino"];
+                                       if ($a == $b or $c==$b) {
+                                           
+                                           $trayectosFilt[] = $trayectos[$i];
+                                       }
+                                    }
                                 
                                 ?>
 
@@ -175,7 +205,7 @@
                             <div class="col-lg-12  box-title no-border">
                                 <div class="inner">
                                     <h2><span> Trayectos </span> publicados
-                                     <small><?php echo count($trayectos) ?> resultado(s) encontrado(s)</small>
+                                     <small><?php echo count($trayectosFilt); ?> resultado(s) encontrado(s)</small>
                                     </h2>
                                 </div>
                             </div>
@@ -189,8 +219,7 @@
 
                             <?php
                             
-                               for ($i = 1; $i <= count($trayectos); $i = $i + 1) 
-                                {
+                               for ($i = 0; $i < count($trayectosFilt); $i = $i + 1)  {
                             ?>
                             
                             
@@ -206,14 +235,21 @@
                                                                            alt="Avatar de Usuario"></a></div>
                                 </div>
                                 <!--/.photobox-->
+                                
+                                
                                 <div class="col-sm-10  col-xs-10  add-desc-box">
                                     <div class="add-details jobs-item">
-                                        <h5 class="company-title"><a href=""><?php echo $trayectos[$i]['nombre'];?></a></h5>
-                                        <h4 class="job-title"><a href="job-details.html"><?php echo $i; ?>. <?php echo $trayectos[$i]['trayecto'];?></a></h4>
+                                        <h5 class="company-title"><a href=""><?php echo $trayectosFilt[$i]['nombre'];?></a></h5>
+                                        <h4 class="job-title"><a href="job-details.html">
+                                            
+                                       <?php echo $i+1;?> . 
+                                   
+                                            <?php echo $trayectosFilt[$i]['origen'];?> a <?php echo $trayectosFilt[$i]['destino'];?></a></h4>
+                                                                                 
                                         <span class="info-row">  <span class="item-location"><i
-                                                class="fa fa-map-marker"></i> <?php echo $trayectos[$i]['direccion'];?></span> <span class="date"><i
-                                                class=" icon-clock"> </i><?php echo $trayectos[$i]['hora'];?></span><span class=" salary">	<i
-                                                class=" icon-money"> </i><?php echo $trayectos[$i]['precio'];?></span></span>
+                                                class="fa fa-map-marker"></i> <?php echo $trayectosFilt[$i]['direccion'];?></span> <span class="date"><i
+                                                class=" icon-clock"> </i><?php echo $trayectosFilt[$i]['hora'];?></span><span class=" salary">	<i
+                                                class=" icon-money"> </i><?php echo $trayectosFilt[$i]['precio'];?></span></span>
 
                                        
                                         <div class="jobs-desc">
@@ -228,14 +264,14 @@
                                                 <li>
                                                     <span class="save-job">
                                                          <?php
-                                                            echo $trayectos[$i]['comentario'];
+                                                            echo $trayectosFilt[$i]['comentario'];
                                                             ?>
                                                             </br>
                                                         <span class="fa fa-users"></span>
                                                         
                                                             
                                                         
-                                                        <?php echo $trayectos[$i]['plazas'];?> plazas
+                                                        <?php echo $trayectosFilt[$i]['plazas'];?> plazas
                                                     </span>
                                                 </li>
                                             </ul>
