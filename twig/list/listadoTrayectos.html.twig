@@ -1,0 +1,32 @@
+<div class="category-list">
+    <div class="tab-box clearfix ">
+
+    <!-- Nav tabs -->
+        <div class="col-lg-12  box-title no-border">
+            <div class="inner">
+                <h2><span> Trayectos </span> publicados
+               
+<!-- En TWIG -->               <small> {{ trayectos|length }} resultado encontrado</small>
+<!-- En PHP -->               <!-- <small> <?php echo count($trayectosFiltrados);?> resultado encontrado</small> -->
+               
+                </h2>
+            </div>
+        </div>
+    
+    
+
+  <div class="adds-wrapper jobs-list">
+        
+<!-- HACEMOS EL BUCLE -->
+
+        {% for trayecto in trayectos %}
+        
+<!-- LLAMAMOS A OTRA PLANTILLA Y LE PASAMOS LA VARIABLE (AUNQUE EN UN PRINCIPIO NO HARIA FALTA) -->
+             {% include "list/trayecto.html.twig"  with {'trayecto': trayecto} %}
+        
+        {% endfor %}
+        
+    </div>
+    
+</div>
+</div>

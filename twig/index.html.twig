@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listado - Comparte tu coche{% endblock %}
+
+{% block contenido %}
+
+    {% include "index/sloganBuscador.html.twig" %}
+    
+   
+    {% include "index/comentarios.html.twig" %}
+    
+    {% include "index/popularidad.html.twig" %}
+    
+    {% include "index/contactar.html.twig" %}
+
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script type="text/javascript" src="assets/plugins/autocomplete/jquery.mockjax.js"></script>
+    <script type="text/javascript" src="assets/plugins/autocomplete/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="curso-assets/js/ciudades.js"></script>
+    
+    <script type="text/javascript" src="assets/plugins/autocomplete/autocomplete-demo.js"></script>
+{% endblock %}
